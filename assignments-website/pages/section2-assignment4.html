@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Section 2 - Assignment 4</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Section 2 — Assignment 4</h1>
+    <p class="subtitle">Merge Sorted Arrays</p>
+  </header>
+  <main class="container">
+    <div class="card-panel">
+      <h2>Условие</h2>
+      <p>Слейте два отсортированных массива в один отсортированный массив.</p>
+      <h3>Пример</h3>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.3); padding:10px; border-radius:6px;">Input:\n1 3 5\n2 4 6\nOutput: 1 2 3 4 5 6</pre>
+    </div>
+
+    <div class="card-panel">
+      <h2>Решение (Python)</h2>
+      <p>Код:</p>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.4); padding:12px; border-radius:8px;">a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+res=[]
+i=j=0
+while i<len(a) and j<len(b):
+    if a[i]<=b[j]: res.append(a[i]); i+=1
+    else: res.append(b[j]); j+=1
+res.extend(a[i:]); res.extend(b[j:])
+print(' '.join(map(str,res)))</pre>
+      <p><strong>Сложность:</strong> O(n+m)</p>
+      <p>Ссылки: <a href="../index.html">Назад к списку заданий</a></p>
+    </div>
+  </main>
+</body>
+</html>

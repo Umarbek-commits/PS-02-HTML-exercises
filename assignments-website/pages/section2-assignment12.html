@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Section 2 - Assignment 12</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Section 2 — Assignment 12</h1>
+    <p class="subtitle">Merge Intervals (simple)</p>
+  </header>
+  <main class="container">
+    <div class="card-panel">
+      <h2>Условие</h2>
+      <p>Даны интервалы [[s,e]] — объедините пересекающиеся.</p>
+      <h3>Пример</h3>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.3); padding:10px; border-radius:6px;">Input:\n3\n1 3\n2 6\n8 10\nOutput:\n1 6\n8 10</pre>
+    </div>
+
+    <div class="card-panel">
+      <h2>Решение (Python)</h2>
+      <p>Код:</p>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.4); padding:12px; border-radius:8px;">intervals=[list(map(int,input().split())) for _ in range(int(input()))]
+if not intervals: print('')
+else:
+    intervals.sort()
+    res=[intervals[0]]
+    for s,e in intervals[1:]:
+        if s<=res[-1][1]: res[-1][1]=max(res[-1][1], e)
+        else: res.append([s,e])
+    for a,b in res: print(a,b)</pre>
+      <p><strong>Сложность:</strong> O(n log n)</p>
+      <p>Ссылки: <a href="../index.html">Назад к списку заданий</a></p>
+    </div>
+  </main>
+</body>
+</html>

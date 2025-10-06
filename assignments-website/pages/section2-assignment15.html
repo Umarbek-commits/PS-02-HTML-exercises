@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Section 2 - Assignment 15</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Section 2 — Assignment 15</h1>
+    <p class="subtitle">Dijkstra (small)</p>
+  </header>
+  <main class="container">
+    <div class="card-panel">
+      <h2>Условие</h2>
+      <p>Найдите кратчайшие пути от вершины 0 в взвешенном графе (n≤1000) — простой Dijkstra.</p>
+      <h3>Пример</h3>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.3); padding:10px; border-radius:6px;">Input:\n4 4\n0 1 1\n1 2 2\n0 2 4\n2 3 1\nOutput: 0 1 3 4</pre>
+    </div>
+
+    <div class="card-panel">
+      <h2>Решение (Python)</h2>
+      <p>Код:</p>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.4); padding:12px; border-radius:8px;">import heapq
+n,m=map(int,input().split())
+g=[[] for _ in range(n)]
+for _ in range(m):
+    u,v,w=map(int,input().split()); g[u].append((v,w))
+d=[10**18]*n; d[0]=0
+pq=[(0,0)]
+while pq:
+    dist,u=heapq.heappop(pq)
+    if dist!=d[u]: continue
+    for v,w in g[u]:
+        if d[v]>dist+w:
+            d[v]=dist+w; heapq.heappush(pq,(d[v],v))
+print(' '.join(str(x if x<10**17 else -1) for x in d))</pre>
+      <p><strong>Сложность:</strong> O((n+m) log n)</p>
+      <p>Ссылки: <a href="../index.html">Назад к списку заданий</a></p>
+    </div>
+  </main>
+</body>
+</html>

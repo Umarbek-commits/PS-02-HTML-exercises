@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Section 2 - Assignment 17</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Section 2 — Assignment 17</h1>
+    <p class="subtitle">Top K Frequent Elements</p>
+  </header>
+  <main class="container">
+    <div class="card-panel">
+      <h2>Условие</h2>
+      <p>Найдите k самых частых элементов в массиве.</p>
+      <h3>Пример</h3>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.3); padding:10px; border-radius:6px;">Input:\n1 1 1 2 2 3\n2\nOutput: 1 2</pre>
+    </div>
+
+    <div class="card-panel">
+      <h2>Решение (Python)</h2>
+      <p>Код:</p>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.4); padding:12px; border-radius:8px;">from collections import Counter
+arr=list(map(int,input().split()))
+k=int(input())
+cnt=Counter(arr)
+print(' '.join(str(x) for x,_ in cnt.most_common(k)))</pre>
+      <p><strong>Сложность:</strong> O(n log k)</p>
+      <p>Ссылки: <a href="../index.html">Назад к списку заданий</a></p>
+    </div>
+  </main>
+</body>
+</html>

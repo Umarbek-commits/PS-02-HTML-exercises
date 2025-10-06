@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Section 2 - Assignment 14</title>
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Section 2 — Assignment 14</h1>
+    <p class="subtitle">Longest Increasing Subsequence (n log n) - length</p>
+  </header>
+  <main class="container">
+    <div class="card-panel">
+      <h2>Условие</h2>
+      <p>Найдите длину наибольшей строго возрастающей подпоследовательности.</p>
+      <h3>Пример</h3>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.3); padding:10px; border-radius:6px;">Input: 10 9 2 5 3 7 101 18
+Output: 4</pre>
+    </div>
+
+    <div class="card-panel">
+      <h2>Решение (Python)</h2>
+      <p>Код:</p>
+      <pre style="white-space:pre-wrap; background: rgba(0,0,0,0.4); padding:12px; border-radius:8px;">import bisect
+arr=list(map(int,input().split()))
+lds=[]
+for x in arr:
+    i=bisect.bisect_left(lds,x)
+    if i==len(lds): lds.append(x)
+    else: lds[i]=x
+print(len(lds))</pre>
+      <p><strong>Сложность:</strong> O(n log n)</p>
+      <p>Ссылки: <a href="../index.html">Назад к списку заданий</a></p>
+    </div>
+  </main>
+</body>
+</html>
